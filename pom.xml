@@ -3,7 +3,7 @@
 
     <groupId>io.github.itamarc</groupId>
     <artifactId>maventest</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -13,7 +13,7 @@
         <dependency>
             <groupId>io.github.itamarc</groupId>
             <artifactId>itemplate</artifactId>
-            <version>1.1</version>
+            <version>1.2</version>
         </dependency>
     </dependencies>
     <build>

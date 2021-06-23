@@ -2,8 +2,10 @@ package io.github.itamarc.mavtest;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -37,8 +39,14 @@ public class TemplateProcessor {
 
     private HashMap<String, String> getValuesMap() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("lastupdate", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        map.put("lastupdate", getTimeStamp());
         return map;
+    }
+
+    private String getTimeStamp() {
+        ZoneId zoneId = ZoneId.of("America/Sao_Paulo");
+        LocalDateTime ldt = LocalDateTime.ofInstant(Instant.now(), zoneId );
+        return ldt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
 /**

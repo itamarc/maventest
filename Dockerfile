@@ -11,7 +11,10 @@ RUN mvn -f /home/app/pom.xml clean package
 # Package stage
 #
 FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/maventest-0.1.jar /usr/local/lib/maventest-0.1.jar
+## If the version is changed in pom.xml you need to update here...
+ENV JARVERSION="0.2"
+COPY --from=build /home/app/target/maventest-${JARVERSION}.jar /usr/local/lib/maventest-${JARVERSION}.jar
 COPY --from=build /home/app/templates/* /home/app/templates/
 RUN mkdir /home/app/doc
-ENTRYPOINT ["java","-jar","/usr/local/lib/maventest-0.1.jar","/home/app/templates", "/home/app/doc"]
+## ...and here, since ENTRYPOINT does not allow ENV variables
+ENTRYPOINT ["java","-jar","/usr/local/lib/maventest-0.2.jar","/home/app/templates","/home/app/doc"]

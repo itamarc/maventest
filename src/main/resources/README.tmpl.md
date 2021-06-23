@@ -6,7 +6,7 @@ This is my first step to in the future create an Action to auto-create the Page 
 a GitHub project using [ITemplate](https://github.com/itamarc/itemplate) and the
 GitHub API.
 
-Considering that you have installed and properly configured these requisites:
+Considering that you have installed and properly configured these requirements:
 - JDK 11
 - Maven 3.8.1
 - Docker
